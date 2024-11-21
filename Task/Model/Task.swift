@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Task: Identifiable{
+struct Task: Identifiable, Codable{
     var id = UUID() 
     var title: String = ""
     var isFinish: Bool = false
