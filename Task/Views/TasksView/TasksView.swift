@@ -19,7 +19,7 @@ struct TasksView: View {
                 HeaderView()
 
                 TaskListView(
-                    taskList: viewModel.taskList,
+                    taskList: viewModel.taskState.taskList,
                     onDelete: { task in viewModel.deleteTask(task) },
                     onClick: { task in
                         viewModel.finished(task: task)

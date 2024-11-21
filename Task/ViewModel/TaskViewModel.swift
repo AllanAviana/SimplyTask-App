@@ -9,12 +9,11 @@ import SwiftUI
 import Combine
 
 class TaskViewModel: ObservableObject{
-    @Published var taskList: [Task] = []
     @Published var taskState: TaskState = TaskState()
     
     func addTask(_ task: Task){
         if taskState.title != ""{
-            taskList.append(task)
+            taskState.taskList.append(task)
             taskState.showPopup = false
             taskState.title = ""
         }
@@ -25,14 +24,14 @@ class TaskViewModel: ObservableObject{
     }
     
     func finished(task: Task) {
-        if let index = taskList.firstIndex(where: { $0.id == task.id }) {
-            taskList[index].isFinish.toggle()
+        if let index = taskState.taskList.firstIndex(where: { $0.id == task.id }) {
+            taskState.taskList[index].isFinish.toggle()
         }
     }
     
     func deleteTask(_ task: Task) {
-            if let index = taskList.firstIndex(where: { $0.id == task.id }) {
-                taskList.remove(at: index)
+        if let index = taskState.taskList.firstIndex(where: { $0.id == task.id }) {
+            taskState.taskList.remove(at: index)
             }
         }
 

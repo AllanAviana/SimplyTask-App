@@ -10,5 +10,6 @@ import SwiftUI
 struct TaskState{
     var title: String = ""
     var showPopup: Bool = false
+    var taskList: [Task] = []
 }
 
